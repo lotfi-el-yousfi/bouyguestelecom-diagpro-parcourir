@@ -1,0 +1,20 @@
+let parcour_list = [
+  "https://cdcdiagpro.pin.prd.euw3r53.nbyt.fr/diagnostics/conduite-d-activite/de-quel-type-d-appel-s-agit-il",
+  "https://cdcdiagpro.pin.prd.euw3r53.nbyt.fr/diagnostics/conduite-d-activite/de-quel-type-d-appel-s-agit-il/entrant/qui-avez-vous-au-telephone",
+  "https://cdcdiagpro.pin.prd.euw3r53.nbyt.fr/diagnostics/conduite-d-activite/de-quel-type-d-appel-s-agit-il/entrant/qui-avez-vous-au-telephone/le-technicien/le-client-a-t-il-une-offre-cmcic/non/quel-est-le-motif-de-l-appel",
+  "https://cdcdiagpro.pin.prd.euw3r53.nbyt.fr/diagnostics/conduite-d-activite/de-quel-type-d-appel-s-agit-il/entrant/qui-avez-vous-au-telephone/le-technicien/le-client-a-t-il-une-offre-cmcic/non/quel-est-le-motif-de-l-appel/support-technique/quelle-est-le-type-d-intervention",
+  "https://cdcdiagpro.pin.prd.euw3r53.nbyt.fr/diagnostics/sous-arbre/conduite-d-activite/30.3.01-chapeau-arbre-mainteneur/quel-est-le-type-d-intervention/sav/quelle-est-la-couleur-de-la-cartouche/verte-noire/quel-est-le-code-offre-du-client/2p/quel-est-le-numero-de-telephone-fixe/quelle-est-l-offre-du-client/n-est-pas-prospect/s-agit-t-il-d-une-commande-hotline/hotline/qui-est-l-installateur",
+  "https://cdcdiagpro.pin.prd.euw3r53.nbyt.fr/diagnostics/sous-arbre/conduite-d-activite/30.3.01-chapeau-arbre-mainteneur/quel-est-le-type-d-intervention/sav/quelle-est-la-couleur-de-la-cartouche/verte-noire/quel-est-le-code-offre-du-client/2p/quel-est-le-numero-de-telephone-fixe/quelle-est-l-offre-du-client/n-est-pas-prospect/s-agit-t-il-d-une-commande-hotline/different-de-hotline/qui-est-l-installateur/delta-circet/quelle-est-la-problematique-rencontree",
+  "https://cdcdiagpro.pin.prd.euw3r53.nbyt.fr/diagnostics/sous-arbre/conduite-d-activite/30.3.10-controle-probleme-adresse/est-ce-une-intervention-terrain-ou-un-pre-appel/intervention-terrain/l-adresse-postale-du-client-correspond-elle-a-celle-de-la-commande",
+  "https://cdcdiagpro.pin.prd.euw3r53.nbyt.fr/diagnostics/sous-arbre/conduite-d-activite/30.3.10-controle-probleme-adresse/est-ce-une-intervention-terrain-ou-un-pre-appel/intervention-terrain/l-adresse-postale-du-client-correspond-elle-a-celle-de-la-commande/non/renseigner-la-nouvelle-adresse",
+];
+let last = parcour_list.pop();
+let t = setInterval(() => {
+  if (parcour_list.length > 0) {
+    let link = parcour_list.shift();
+    fetch(link);
+  } else {
+    document.location = last;
+    clearInterval(t);
+  }
+}, 2000);
